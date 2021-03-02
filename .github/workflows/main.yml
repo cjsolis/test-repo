@@ -1,0 +1,17 @@
+# This is a basic workflow to help you get started with Actions
+
+name: SUPER ADMIN tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: matt-ball/newman-action@master
+        with:
+          collection: ./api/postman/Littera_SUPER_ADMIN_test_execution.postman_collection.json
+          environment: ./api/postman/Development_SUPER_ADMIN.postman_environment.json
+
