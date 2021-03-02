@@ -9,9 +9,19 @@ jobs:
   newman:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
       - uses: actions/checkout@v2
-      - uses: matt-ball/newman-action@master
+
+      - name: Run API Tests
+      - id: run-newman
+      - uses: anthonyvscode/newman-action@v1
         with:
           collection: ./api/postman/Littera_SUPER_ADMIN_test_execution.postman_collection.json
           environment: ./api/postman/Development_SUPER_ADMIN.postman_environment.json
+          reporters: cli
+          
+      - name: Output summary to console
+      - run: echo ${{ steps.run-newman.outputs.summary }}
+
+
 
