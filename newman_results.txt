@@ -1,0 +1,917 @@
+newman
+
+Littera SUPER_ADMIN test execution
+
+❏ Core API / Actuator
+↳ ACTUATOR HEALTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.63KB, 679ms]
+  GET https://dev.api.litteraeducation.com/actuator/health [200 OK, 476B, 455ms]
+  ✓  Status code is 200
+
+↳ ACTUATOR INFO
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 260ms]
+  GET https://dev.api.litteraeducation.com/actuator/info [200 OK, 1.44KB, 143ms]
+  ✓  Status code is 200
+
+❏ Core API / Littera Authorization
+↳ Authorization
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 226ms]
+  GET https://dev.api.litteraeducation.com/api/v1/authorization [200 OK, 628B, 124ms]
+  ✓  Status code is 200
+
+↳ Authorization NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 284ms]
+  GET https://dev.api.litteraeducation.com/api/v1/authorization [403 Forbidden, 570B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / Organization REST Service / Get Organizations
+↳ Get Organizations
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 366ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations [200 OK, 3.46KB, 132ms]
+  ✓  Status code is 200
+
+↳ Get Organizations PAGINATION
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 139ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations?page=2&size=1 [200 OK, 689B, 125ms]
+  ✓  Status code is 200
+  ✓  Response body data length is equal to 1
+  ✓  Response body meta page is equal to 2
+  ✓  Response body meta size is equal to 1
+
+↳ Get Organizations NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 259ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations [403 Forbidden, 570B, 117ms]
+  ✓  Status code is 403
+
+❏ Core API / Organization REST Service / Create Organizations
+↳ Create Organization
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 132ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations [201 Created, 645B, 125ms]
+  ✓  Status code is 201
+
+↳ Create Organization NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 241ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations [403 Forbidden, 570B, 118ms]
+  ✓  Status code is 403
+
+❏ Core API / Organization REST Service / Update Organizations
+↳ Update Organization
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 228ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/f30bf491-4b1a-409e-91e4-50234af336d6 [200 OK, 632B, 129ms]
+  ✓  Status code is 200
+
+↳ Update Organization NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 239ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000 [404 Not Found, 749B, 123ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Update Organization NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 244ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/f30bf491-4b1a-409e-91e4-50234af336d6 [403 Forbidden, 607B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / User REST Service / Get Users
+↳ Get Users
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 266ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/users [200 OK, 13.16KB, 240ms]
+  ✓  Status code is 200
+
+↳ Get Users PAGINATION
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 204ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/users?page=2&size=1 [200 OK, 797B, 141ms]
+  ✓  Status code is 200
+  ✓  Response body data length is equal to 1
+  ✓  Response body meta page is equal to 2
+  ✓  Response body meta size is equal to 1
+
+↳ Get Users NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 156ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/users [403 Forbidden, 613B, 117ms]
+  ✓  Status code is 403
+
+❏ Core API / User REST Service / Add Users
+↳ Add Users to Organization
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 263ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/users [201 Created, 634B, 132ms]
+  ✓  Status code is 201
+
+↳ Add Users to Organization NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 221ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/users [404 Not Found, 740B, 123ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Add Users to Organization NA ROLE
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 236ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/users [400 Bad Request, 760B, 129ms]
+  ✓  Status code is 200
+  ✓  Roles provided not allowed error message
+
+↳ Add Users to Organization NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 219ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/users [403 Forbidden, 613B, 117ms]
+  ✓  Status code is 403
+
+❏ Core API / User REST Service / Update Users
+↳ Update User
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 218ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/users/103e8abd-9bf4-4c5f-a6e1-1bfedaa81687 [200 OK, 738B, 146ms]
+  ✓  Status code is 200
+
+↳ Update User NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 140ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/users/103e8abd-9bf4-4c5f-a6e1-1bfedaa81687 [404 Not Found, 741B, 123ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Update User NE USER ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 249ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/users/00000000-0000-0000-0000-000000000000 [404 Not Found, 733B, 130ms]
+  ✓  Status code is 404
+  ✓  User not found error mesagge
+
+↳ Update User NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 233ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/users/103e8abd-9bf4-4c5f-a6e1-1bfedaa81687 [403 Forbidden, 650B, 118ms]
+  ✓  Status code is 403
+
+❏ Core API / File REST Service / Get Signed Download URL
+↳ Get Signed download URL
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 130ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/files/143b93d9-d222-44dc-b1a1-c35d9c9339bb/download-url [200 OK, 1.99KB, 132ms]
+  ✓  Status code is 200
+
+↳ Get Signed download URL NAS CF ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 166ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/files/871ae80f-9306-4b9f-9af4-2b4a2ab020b8/download-url [404 Not Found, 793B, 123ms]
+  ✓  Status code is 404
+  ✓  Content file not found error message
+
+↳ Get Signed download URL NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 311ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/files/143b93d9-d222-44dc-b1a1-c35d9c9339bb/download-url [403 Forbidden, 658B, 118ms]
+  ✓  Status code is 403
+
+❏ Core API / File REST Service / Get Signed Upload URL
+↳ Get Signed upload URL
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 143ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/files/upload-url?filename=testFile1614632278.txt [200 OK, 2.01KB, 612ms]
+  ✓  Status code is 200
+
+↳ Get Signed upload URL NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 127ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/files/upload-url?filename=testFile1614632279.txt [403 Forbidden, 624B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / UserAccount REST Service / Create user accounts
+↳ Create user account
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 218ms]
+  POST https://dev.api.litteraeducation.com/api/v1/user-accounts [201 Created, 729B, 162ms]
+  ✓  Status code is 201
+
+↳ Create user account NE USER ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 158ms]
+  POST https://dev.api.litteraeducation.com/api/v1/user-accounts [404 Not Found, 786B, 123ms]
+  ✓  Status code is 404
+  ✓  User not found error message
+
+↳ Create user account DUP PHONE
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 140ms]
+  POST https://dev.api.litteraeducation.com/api/v1/user-accounts [400 Bad Request, 776B, 129ms]
+  ✓  Status code is 400
+  ✓  Already exists error message
+
+↳ Create user account INCOR PHONE
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 249ms]
+  POST https://dev.api.litteraeducation.com/api/v1/user-accounts [400 Bad Request, 743B, 154ms]
+  ✓  Status code is 400
+  ✓  Incorrect phone format error message
+
+↳ Create user account DUP EMAIL
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 225ms]
+  POST https://dev.api.litteraeducation.com/api/v1/user-accounts [400 Bad Request, 781B, 130ms]
+  ✓  Status code is 400
+  ✓  Already exists error message
+
+↳ Create user account INCOR EMAIL
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 131ms]
+  POST https://dev.api.litteraeducation.com/api/v1/user-accounts [400 Bad Request, 744B, 129ms]
+  ✓  Status code is 400
+  ✓  Incorrect email format error message
+
+↳ Create user account DUP USERNAME
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 271ms]
+  POST https://dev.api.litteraeducation.com/api/v1/user-accounts [400 Bad Request, 774B, 137ms]
+  ✓  Status code is 400
+  ✓  Already exists error message
+
+↳ Create user account NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 137ms]
+  POST https://dev.api.litteraeducation.com/api/v1/user-accounts [403 Forbidden, 570B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / UserAccount REST Service / Update user accounts
+↳ Update user account
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 310ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/user-accounts/8b97f4da-30cf-45cc-964b-dc3433fdc46c [200 OK, 730B, 140ms]
+  ✓  Status code is 200
+
+↳ Update user account DUP PHONE
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 149ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/user-accounts/8b97f4da-30cf-45cc-964b-dc3433fdc46c [400 Bad Request, 800B, 124ms]
+  ✓  Status code is 400
+  ✓  Already exists error message
+
+↳ Update user account INCOR PHONE
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 144ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/user-accounts/8b97f4da-30cf-45cc-964b-dc3433fdc46c [400 Bad Request, 744B, 118ms]
+  ✓  Status code is 400
+  ✓  Incorrect email format error message
+
+↳ Update user account DUP EMAIL
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 146ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/user-accounts/8b97f4da-30cf-45cc-964b-dc3433fdc46c [400 Bad Request, 781B, 127ms]
+  ✓  Status code is 400
+  ✓  Already exists error message
+
+↳ Update user account INCOR EMAIL
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 233ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/user-accounts/8b97f4da-30cf-45cc-964b-dc3433fdc46c [400 Bad Request, 744B, 118ms]
+  ✓  Status code is 400
+  ✓  Incorrect email format error message
+
+↳ Update user account DUP USERNAME
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 231ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/user-accounts/8b97f4da-30cf-45cc-964b-dc3433fdc46c [400 Bad Request, 774B, 122ms]
+  ✓  Status code is 400
+  ✓  Already exists error message
+
+↳ Update user account NE UA ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 233ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/user-accounts/00000000-0000-0000-0000-000000000000 [404 Not Found, 793B, 134ms]
+  ✓  Status code is 404
+  ✓  User account not found error message
+
+↳ Update user account NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 198ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/user-accounts/8b97f4da-30cf-45cc-964b-dc3433fdc46c [403 Forbidden, 607B, 115ms]
+  ✓  Status code is 403
+
+❏ Core API / Roster File REST Service / Get Roster Files
+↳ Get Roster File
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 137ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/roster-files/820d4cb7-e994-4508-b445-fa465cebbd17 [200 OK, 1.08KB, 160ms]
+  ✓  Status code is 200
+
+↳ Get Roster File NE RF ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 143ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/roster-files/00000000-0000-0000-0000-000000000000 [404 Not Found, 792B, 122ms]
+  ✓  Status code is 404
+  ✓  Roster file id not found error message
+
+↳ Get Roster File NAS RF ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 219ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/roster-files/b97dba7d-36f1-41b2-a78f-52ede16826e4 [404 Not Found, 792B, 122ms]
+  ✓  Status code is 404
+  ✓  Roster file not found error message
+
+↳ Get Roster File NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 131ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/roster-files/820d4cb7-e994-4508-b445-fa465cebbd17 [403 Forbidden, 657B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / Tutor REST Service / Create Tutor Pools
+↳ Create Tutor Pool
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 236ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools [201 Created, 678B, 142ms]
+  ✓  Status code is 201
+
+↳ Create Tutor Pool DUP NAME
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 130ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools [400 Bad Request, 813B, 137ms]
+  ✓  Status code is 400
+  ✓  Organization already exists error message
+
+↳ Create Tutor Pool NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 153ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools [403 Forbidden, 619B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / Tutor REST Service / Get Tutor Pools by Organization
+↳ Get TP by Org
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 239ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools [200 OK, 4.25KB, 151ms]
+  ✓  Status code is 200
+
+↳ Get TP by Org PAGINATION
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 143ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools?page=2&size=1 [200 OK, 722B, 131ms]
+  ✓  Status code is 200
+  ✓  Response body data length is equal to 1
+  ✓  Response body meta page is equal to 2
+  ✓  Response body meta size is equal to 1
+
+↳ Get TP by Org NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 136ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/tutor-pools [404 Not Found, 781B, 124ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Get TP by Org NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 246ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools [403 Forbidden, 619B, 115ms]
+  ✓  Status code is 403
+
+❏ Core API / Tutor REST Service / Get All Public Tutor Pools
+↳ Get All Public Tutor Pools
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 217ms]
+  GET https://dev.api.litteraeducation.com/api/v1/tutor-pools [403 Forbidden, 568B, 118ms]
+  1. Status code is 200
+
+↳ Get All Public Tutor Pools PAGINATION
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 258ms]
+  GET https://dev.api.litteraeducation.com/api/v1/tutor-pools?page=2&size=1 [403 Forbidden, 568B, 118ms]
+  2. Status code is 200
+  3. Response body data length is equal to 1
+  4. Response body meta page is equal to 2
+  5. Response body meta size is equal to 1
+
+↳ Get All Public Tutor NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 135ms]
+  GET https://dev.api.litteraeducation.com/api/v1/tutor-pools [403 Forbidden, 568B, 115ms]
+  ✓  Status code is 403
+
+❏ Core API / Tutor REST Service / Set Enabled Tutor Pools by Organization
+↳ Set Enabled TP by Org
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 281ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/enabled-tutor-pools [201 Created, 672B, 142ms]
+  ✓  Status code is 201
+
+↳ Set Enabled TP by Org NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 211ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/enabled-tutor-pools [404 Not Found, 782B, 126ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Set Enabled TP by Org PUB TP ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 130ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/enabled-tutor-pools [201 Created, 670B, 139ms]
+  ✓  Status code is 201
+
+↳ Set Enabled TP by Org PRIV TP ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 136ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/enabled-tutor-pools [400 Bad Request, 811B, 148ms]
+  ✓  Status code is 400
+  ✓  Tutor pool does not belong to organization error message
+
+↳ Set Enabled TP by Org NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 242ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/enabled-tutor-pools [403 Forbidden, 627B, 117ms]
+  ✓  Status code is 403
+
+❏ Core API / Tutor REST Service / Get Enabled Tutor Pools by Organization
+↳ Get Enabled TP by Org
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 250ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/enabled-tutor-pools [200 OK, 712B, 134ms]
+  ✓  Status code is 200
+
+↳ Get Enabled TP by Org PAGINATION
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 132ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/enabled-tutor-pools?page=0&size=1 [200 OK, 711B, 129ms]
+  ✓  Status code is 200
+  ✓  Response body data length is equal to 1
+  ✓  Response body meta page is equal to 0
+  ✓  Response body meta size is equal to 1
+
+↳ Get Enabled TP by Org NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 128ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/enabled-tutor-pools [404 Not Found, 782B, 122ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Get Enabled TP by Org NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 138ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/enabled-tutor-pools [403 Forbidden, 627B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / Tutor REST Service / Create Tutor Profiles
+↳ Create Tutor Profile
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 200ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles [201 Created, 939B, 162ms]
+  ✓  Status code is 201
+
+↳ Create Tutor Profile NE GL
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 128ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles [400 Bad Request, 789B, 128ms]
+  ✓  Status code is 400
+  ✓  Grade level does not exist error message
+
+↳ Create Tutor Profile NE SUBJ
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 143ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles [400 Bad Request, 781B, 135ms]
+  ✓  Status code is 400
+  ✓  Subject does not exist error message
+
+↳ Create Tutor Profile NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 132ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles [404 Not Found, 786B, 122ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Create Tutor Profile NE TP ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 158ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/00000000-0000-0000-0000-000000000000/tutor-profiles [404 Not Found, 786B, 136ms]
+  ✓  Status code is 404
+  ✓  Tutor pool id not found error message
+
+↳ Create Tutor Profile NAS TP ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 244ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/717da7ce-c71c-4df1-b520-739458ab6df8/tutor-profiles [400 Bad Request, 849B, 129ms]
+  ✓  Status code is 400
+  ✓  Tutor pool does not belong error message
+
+↳ Create Tutor Profile NAS USER ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 137ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles [400 Bad Request, 799B, 137ms]
+  ✓  Status code is 400
+  ✓  User not in organization error message
+
+↳ Create Tutor Profile NTU USER ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 227ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles [400 Bad Request, 799B, 137ms]
+  ✓  Status code is 400
+  ✓  User not in organization error message
+
+↳ Create Tutor Profile NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 140ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles [403 Forbidden, 671B, 114ms]
+  ✓  Status code is 403
+
+❏ Core API / Tutor REST Service / Get Tutor Profiles
+↳ Get Tutor Profiles
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 138ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles [200 OK, 20.62KB, 451ms]
+  ✓  Status code is 200
+
+↳ Get Tutor Profiles PAGINATION
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 241ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles?page=2&size=1 [200 OK, 1.01KB, 205ms]
+  ✓  Status code is 200
+  ✓  Response body data length is equal to 1
+  ✓  Response body meta page is equal to 2
+  ✓  Response body meta size is equal to 1
+
+↳ Get Tutor Profiles NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 227ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles [404 Not Found, 786B, 120ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Get Tutor Profiles NE TP ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 146ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/00000000-0000-0000-0000-000000000000/tutor-profiles [404 Not Found, 787B, 129ms]
+  ✓  Status code is 404
+  ✓  Tutor pool id not found error message
+
+↳ Get Tutor Profiles NAS TP ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 133ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/717da7ce-c71c-4df1-b520-739458ab6df8/tutor-profiles [400 Bad Request, 849B, 126ms]
+  ✓  Status code is 400
+  ✓  Tutor pool does not belong error message
+
+↳ Get Tutor Profiles NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 142ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles [403 Forbidden, 671B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / Tutor REST Service / Update Tutor Profile
+↳ Update Tutor Profile
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 154ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles/d30858b9-23b5-4f2a-b283-1c3d91c87825 [200 OK, 940B, 153ms]
+  ✓  Status code is 200
+
+↳ Update Tutor Profile TZ ONLY
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 130ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles/d30858b9-23b5-4f2a-b283-1c3d91c87825 [200 OK, 846B, 173ms]
+  ✓  Status code is 200
+
+↳ Update Tutor Profile NO TZ
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 131ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles/d30858b9-23b5-4f2a-b283-1c3d91c87825 [404 Not Found, 756B, 118ms]
+  ✓  Status code is 404
+  ✓  Timezone not null error message
+
+↳ Update Tutor Profile NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 139ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles/d30858b9-23b5-4f2a-b283-1c3d91c87825 [404 Not Found, 786B, 127ms]
+  ✓  Status code is 404
+  ✓  Organizaton not found error message
+
+↳ Update Tutor Profile NE TP ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 131ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/00000000-0000-0000-0000-000000000000/tutor-profiles/d30858b9-23b5-4f2a-b283-1c3d91c87825 [404 Not Found, 787B, 128ms]
+  ✓  Status code is 404
+  ✓  Tutor pool not found error message
+
+↳ Update Tutor Profile NAS TP ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 129ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/8f6a9ede-adf2-4544-a5be-af88d61c2ec9/tutor-profiles/d30858b9-23b5-4f2a-b283-1c3d91c87825 [400 Bad Request, 849B, 133ms]
+  ✓  Status code is 400
+  ✓  Tutor pool does not belong error message
+
+↳ Update Tutor Profile NAS TPROF ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 128ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles/5a43d970-6d64-4fe1-8462-1d89b023ad9e [400 Bad Request, 851B, 135ms]
+  ✓  Status code is 400
+  ✓  Tutor profile does not belong error message
+
+↳ Update Tutor Profile NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 224ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/tutor-pools/d9836770-c4d7-45b5-8c3d-9f7323feba6c/tutor-profiles/d30858b9-23b5-4f2a-b283-1c3d91c87825 [403 Forbidden, 708B, 115ms]
+  ✓  Status code is 403
+
+❏ Core API / Course enrollment REST Service
+↳ Get Course Enrollments
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 130ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/course-enrollments [200 OK, 15.84KB, 148ms]
+  ✓  Status code is 200
+
+↳ Get Course Enrollments PAGINATION
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 146ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/course-enrollments?page=2&size=1 [200 OK, 822B, 126ms]
+  ✓  Status code is 200
+  ✓  Response body data length is equal to 1
+  ✓  Response body meta page is equal to 2
+  ✓  Response body meta size is equal to 1
+
+↳ Get Course Enrollment NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 138ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/course-enrollments [403 Forbidden, 626B, 117ms]
+  ✓  Status code is 403
+
+❏ Core API / Course REST Service
+↳ Get Courses
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 237ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/courses [200 OK, 1.69KB, 122ms]
+  ✓  Status code is 200
+
+↳ Get Courses PAGINATION
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 136ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/courses?page=0&size=1 [200 OK, 748B, 126ms]
+  ✓  Status code is 200
+  ✓  Response body data length is equal to 1
+  ✓  Response body meta page is equal to 0
+  ✓  Response body meta size is equal to 1
+
+↳ Get Course NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 127ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/courses [403 Forbidden, 615B, 115ms]
+  ✓  Status code is 403
+
+❏ Core API / LMS Integrations REST Service / Get LMS Integrations By Organization
+↳ Get LMS Integr By Org
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 142ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/lms-integrations [200 OK, 4.6KB, 129ms]
+  ✓  Status code is 200
+
+↳ Get LMS Integr By Org PAGINATION
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 222ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/lms-integrations?page=2&size=1 [200 OK, 830B, 138ms]
+  ✓  Status code is 200
+  ✓  Response body data length is equal to 1
+  ✓  Response body meta page is equal to 2
+  ✓  Response body meta size is equal to 1
+
+↳ Get LMS Integr By Org NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 134ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/lms-integrations [404 Not Found, 782B, 122ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Get LMS Integr By Org NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 128ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/lms-integrations [403 Forbidden, 624B, 115ms]
+  ✓  Status code is 403
+
+❏ Core API / LMS Integrations REST Service / Create LMS Integrations
+↳ Create LMS Integrations
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 127ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/lms-integrations [201 Created, 786B, 143ms]
+  ✓  Status code is 201
+
+↳ Create LMS Integrations NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 139ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/lms-integrations [403 Forbidden, 624B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / Programs REST Service / Create Programs
+↳ Create Programs
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 137ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs [201 Created, 582B, 135ms]
+  ✓  Status code is 201
+
+↳ Create Programs NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 129ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/programs [404 Not Found, 782B, 123ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Create Programs NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 133ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs [403 Forbidden, 616B, 117ms]
+  ✓  Status code is 403
+
+❏ Core API / Programs REST Service / Update Programs
+↳ Update Programs
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 144ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de [200 OK, 1.11KB, 154ms]
+  ✓  Status code is 200
+
+↳ Update Programs NAME ONLY
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 131ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de [200 OK, 613B, 146ms]
+  ✓  Status code is 200
+
+↳ Update Programs SETTINGS ONLY
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 145ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de [200 OK, 1KB, 151ms]
+  ✓  Status code is 200
+
+↳ Update Programs TYPE ONLY
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 128ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de [200 OK, 595B, 137ms]
+  ✓  Status code is 200
+
+↳ Update Programs SUBJ ONLY
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 136ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de [200 OK, 643B, 155ms]
+  ✓  Status code is 200
+
+↳ Update Programs NO FIELDS
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 131ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de [200 OK, 577B, 145ms]
+  ✓  Status code is 200
+
+↳ Update Programs NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 141ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de [404 Not Found, 782B, 130ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Update Programs NE PROG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 129ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/00000000-0000-0000-0000-000000000000 [404 Not Found, 780B, 124ms]
+  ✓  Status code is 404
+  ✓  Program not found error message
+
+↳ Update Programs NAS PROG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 133ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/561d4e43-c055-4be0-8da3-acaa663873df [404 Not Found, 780B, 129ms]
+  ✓  Status code is 404
+  ✓  Program not found error message
+
+↳ Update Programs NE SUBJ
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 126ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de [400 Bad Request, 780B, 128ms]
+  ✓  Status code is 400
+  ✓  Incorrect subject error message
+
+↳ Update Programs NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 130ms]
+  PUT https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de [403 Forbidden, 653B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / Programs REST Service / Perform match Students by Program
+↳ Match Student
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 139ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de/students [200 OK, 493B, 142ms]
+  ✓  Status code is 200
+  ✓  Enrolled count greater than 0
+
+↳ Match Student UNMATCHED
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 127ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de/students [200 OK, 591B, 156ms]
+  ✓  Status code is 200
+  ✓  Response body unmatched length greater than 0
+
+↳ Match Student NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 128ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de/students [404 Not Found, 782B, 120ms]
+  ✓  Status code is 404
+  ✓  Organizaton not found error message
+
+↳ Match Student NAS PROG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 142ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/561d4e43-c055-4be0-8da3-acaa663873df/students [404 Not Found, 839B, 126ms]
+  ✓  Status code is 404
+  ✓  Program id not found error message
+
+↳ Match Student NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 130ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de/students [403 Forbidden, 662B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / Programs REST Service / Get All Programs
+↳ Get all programs
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 138ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs [200 OK, 6.84KB, 226ms]
+  ✓  Status code is 200
+
+↳ Get all programs PAGINATION
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 135ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs?page=2&size=1 [200 OK, 909B, 132ms]
+  ✓  Status code is 200
+  ✓  Response body data length is equal to 1
+  ✓  Response body meta page is equal to 2
+  ✓  Response body meta size is equal to 1
+
+↳ Get all programs STATUS
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 130ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs?status=DRAFT [200 OK, 4.11KB, 177ms]
+  ✓  Status code is 200
+
+↳ Get all programs NE STATUS
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 136ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs?status=WAITING [400 Bad Request, 754B, 126ms]
+  ✓  Status code is 400
+  ✓  Invalid status error message
+
+↳ Get all programs NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 131ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/programs [404 Not Found, 778B, 125ms]
+  ✓  Status code is 404
+  ✓  Organizaton not found error message
+
+↳ Get all programs NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 140ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs [403 Forbidden, 616B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / Programs REST Service / Get Program by Id
+↳ Get Program by ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 131ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de [200 OK, 841B, 141ms]
+  ✓  Status code is 200
+
+↳ Get Program by ID NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 130ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de [404 Not Found, 778B, 121ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Get Program by ID NAS PROG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 133ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/561d4e43-c055-4be0-8da3-acaa663873df [404 Not Found, 839B, 126ms]
+  ✓  Status code is 404
+  ✓  Program not found in organization error message
+
+↳ Get Program by ID NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 148ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de [403 Forbidden, 653B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / Programs REST Service / Get Program Enrollments
+↳ Get Program Enrollments
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 132ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de/enrollments [200 OK, 1.25KB, 137ms]
+  ✓  Status code is 200
+
+↳ Get Program Enrollments NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 129ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de/enrollments [404 Not Found, 778B, 120ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Get Program Enrollments NAS PROG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 127ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/561d4e43-c055-4be0-8da3-acaa663873df/enrollments [404 Not Found, 839B, 127ms]
+  ✓  Status code is 404
+  ✓  Program does not belong error message
+
+↳ Get Program Enrollments NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 133ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de/enrollments [403 Forbidden, 665B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / Programs REST Service / Get tutor profiles by program id
+↳ Get TP by Prog ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 133ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/dd9b8d52-c31b-492d-961c-20f8ae1ffff8/tutor-profiles [200 OK, 11.57KB, 143ms]
+  ✓  Status code is 200
+
+↳ Get TP by Prog ID NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 136ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/programs/dd9b8d52-c31b-492d-961c-20f8ae1ffff8/tutor-profiles [404 Not Found, 786B, 122ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Get TP by Prog ID NAS PROG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 130ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/561d4e43-c055-4be0-8da3-acaa663873df/tutor-profiles [404 Not Found, 839B, 125ms]
+  ✓  Status code is 404
+  ✓  Program does not belong error message
+
+↳ Get TP by Prog ID NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 127ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/bb82c7f9-41e6-4ea5-960e-d01041b109de/tutor-profiles [403 Forbidden, 668B, 116ms]
+  ✓  Status code is 403
+
+❏ Core API / Session REST Service / Create Session for Program
+↳ Create Session for Program
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 130ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/dd9b8d52-c31b-492d-961c-20f8ae1ffff8/sessions [200 OK, 392B, 209ms]
+  ✓  Status code is 200
+
+↳ Create Session for Program NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 129ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/programs/dd9b8d52-c31b-492d-961c-20f8ae1ffff8/sessions [404 Not Found, 782B, 122ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Create Session for Program NAS PROG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 131ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/561d4e43-c055-4be0-8da3-acaa663873df/sessions [404 Not Found, 780B, 131ms]
+  ✓  Status code is 404
+  ✓  Program id not found error message
+
+↳ Create Session for Program NAS PROG ENROLL ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 127ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/dd9b8d52-c31b-492d-961c-20f8ae1ffff8/sessions [400 Bad Request, 804B, 132ms]
+  ✓  Status code is 400
+  ✓  Program enrollment does not belong error message
+
+↳ Create Session for Program NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 138ms]
+  POST https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/dd9b8d52-c31b-492d-961c-20f8ae1ffff8/sessions [403 Forbidden, 662B, 114ms]
+  ✓  Status code is 403
+
+❏ Core API / Session REST Service / Get sessions based on program
+↳ Get sessions on program
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 134ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/b479a38c-9f49-4a00-bdf9-785a98e25f04/sessions [200 OK, 3.6KB, 133ms]
+  ✓  Status code is 200
+
+↳ Get sessions on program NE ORG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 134ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/00000000-0000-0000-0000-000000000000/programs/b479a38c-9f49-4a00-bdf9-785a98e25f04/sessions [404 Not Found, 778B, 123ms]
+  ✓  Status code is 404
+  ✓  Organization not found error message
+
+↳ Get sessions on program NAS PROG ID
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 134ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/561d4e43-c055-4be0-8da3-acaa663873df/sessions [404 Not Found, 839B, 125ms]
+  ✓  Status code is 404
+  ✓  Program does not belong error message
+
+↳ Get sessions on program NO AUTH
+  POST https://littera-development.auth.us-east-1.amazoncognito.com/oauth2/token [200 OK, 1.54KB, 126ms]
+  GET https://dev.api.litteraeducation.com/api/v1/organizations/b18b17cb-0a6b-4a17-9461-6a44b8fb6b17/programs/b479a38c-9f49-4a00-bdf9-785a98e25f04/sessions [403 Forbidden, 662B, 116ms]
+  ✓  Status code is 403
+
+┌─────────────────────────┬────────────────────┬────────────────────┐
+│                         │           executed │             failed │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              iterations │                  1 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│                requests │                296 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│            test-scripts │                479 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│      prerequest-scripts │                384 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              assertions │                241 │                  5 │
+├─────────────────────────┴────────────────────┴────────────────────┤
+│ total run duration: 51.8s                                         │
+├───────────────────────────────────────────────────────────────────┤
+│ total data received: 275.55KB (approx)                            │
+├───────────────────────────────────────────────────────────────────┤
+│ average response time: 155ms [min: 114ms, max: 679ms, s.d.: 64ms] │
+└───────────────────────────────────────────────────────────────────┘
+
+  #  failure         detail                                                                                                      
+                                                                                                                                 
+ 1.  AssertionError  Status code is 200                                                                                          
+                     expected response to have status code 200 but got 403                                                       
+                     at assertion:0 in test-script                                                                               
+                     inside "Core API / Tutor REST Service / Get All Public Tutor Pools / Get All Public Tutor Pools"            
+                                                                                                                                 
+ 2.  AssertionError  Status code is 200                                                                                          
+                     expected response to have status code 200 but got 403                                                       
+                     at assertion:0 in test-script                                                                               
+                     inside "Core API / Tutor REST Service / Get All Public Tutor Pools / Get All Public Tutor Pools PAGINATION" 
+                                                                                                                                 
+ 3.  TypeError       Response body data length is equal to 1                                                                     
+                     Cannot read property 'length' of undefined                                                                  
+                     at assertion:1 in test-script                                                                               
+                     inside "Core API / Tutor REST Service / Get All Public Tutor Pools / Get All Public Tutor Pools PAGINATION" 
+                                                                                                                                 
+ 4.  TypeError       Response body meta page is equal to 2                                                                       
+                     Cannot read property 'page' of undefined                                                                    
+                     at assertion:2 in test-script                                                                               
+                     inside "Core API / Tutor REST Service / Get All Public Tutor Pools / Get All Public Tutor Pools PAGINATION" 
+                                                                                                                                 
+ 5.  TypeError       Response body meta size is equal to 1                                                                       
+                     Cannot read property 'size' of undefined                                                                    
+                     at assertion:3 in test-script                                                                               
+                     inside "Core API / Tutor REST Service / Get All Public Tutor Pools / Get All Public Tutor Pools PAGINATION" 
